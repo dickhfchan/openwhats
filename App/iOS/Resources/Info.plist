@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <!-- App identity -->
+    <key>CFBundleDisplayName</key>
+    <string>OpenWhats</string>
+    <key>CFBundleIdentifier</key>
+    <string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+    <key>CFBundleVersion</key>
+    <string>$(CURRENT_PROJECT_VERSION)</string>
+    <key>CFBundleShortVersionString</key>
+    <string>$(MARKETING_VERSION)</string>
+    <key>CFBundleExecutable</key>
+    <string>$(EXECUTABLE_NAME)</string>
+    <key>CFBundlePackageType</key>
+    <string>APPL</string>
+
+    <!-- iOS minimum version -->
+    <key>MinimumOSVersion</key>
+    <string>17.0</string>
+
+    <!-- Privacy usage descriptions — required before accessing protected resources -->
+    <key>NSCameraUsageDescription</key>
+    <string>OpenWhats uses your camera to take photos and start video calls.</string>
+
+    <key>NSMicrophoneUsageDescription</key>
+    <string>OpenWhats uses your microphone to record voice messages and make calls.</string>
+
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>OpenWhats accesses your photo library so you can share photos in conversations.</string>
+
+    <key>NSContactsUsageDescription</key>
+    <string>OpenWhats can find your contacts so you can start conversations with people you know.</string>
+
+    <!-- Push notifications — configured via Signing & Capabilities in Xcode -->
+    <key>UIBackgroundModes</key>
+    <array>
+        <string>remote-notification</string>
+        <string>voip</string>
+    </array>
+
+    <!-- Face ID (if used for app lock in a future release) -->
+    <key>NSFaceIDUsageDescription</key>
+    <string>OpenWhats uses Face ID to unlock the app.</string>
+
+    <!-- Supported orientations -->
+    <key>UISupportedInterfaceOrientations</key>
+    <array>
+        <string>UIInterfaceOrientationPortrait</string>
+        <string>UIInterfaceOrientationLandscapeLeft</string>
+        <string>UIInterfaceOrientationLandscapeRight</string>
+    </array>
+    <key>UISupportedInterfaceOrientations~ipad</key>
+    <array>
+        <string>UIInterfaceOrientationPortrait</string>
+        <string>UIInterfaceOrientationPortraitUpsideDown</string>
+        <string>UIInterfaceOrientationLandscapeLeft</string>
+        <string>UIInterfaceOrientationLandscapeRight</string>
+    </array>
+
+    <!-- App Transport Security — enforce HTTPS -->
+    <key>NSAppTransportSecurity</key>
+    <dict>
+        <key>NSAllowsArbitraryLoads</key>
+        <false/>
+        <!-- Allow localhost for debug/simulator builds only -->
+        <key>NSExceptionDomains</key>
+        <dict>
+            <key>localhost</key>
+            <dict>
+                <key>NSExceptionAllowsInsecureHTTPLoads</key>
+                <true/>
+                <key>NSTemporaryExceptionMinimumTLSVersion</key>
+                <string>TLSv1.2</string>
+            </dict>
+        </dict>
+    </dict>
+
+    <!-- CallKit integration -->
+    <key>UTExportedTypeDeclarations</key>
+    <array/>
+</dict>
+</plist>

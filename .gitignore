@@ -1,0 +1,59 @@
+# Compiled binaries
+Server/server
+Server/testtoken
+
+# Secrets & local config
+.env
+.env.*
+!.env.example
+*accessKeys*.csv
+*credentials*.csv
+*.pem
+
+# Claude Code session data
+.claude/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Xcode / Swift
+DerivedData/
+build/
+*.xcuserstate
+xcuserdata/
+*.moved-aside
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# Swift Package Manager
+.build/
+.swiftpm/configuration/
+
+# CocoaPods
+Pods/
+
+# Carthage
+Carthage/Build/
+
+# fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/**/*.png
+fastlane/test_output
+
+# Backend / tooling (common when you add services)
+node_modules/
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.terraform/
+*.tfstate
+*.tfstate.*
+
+# IDE (optional — remove if you want shared editor config committed)
+.idea/

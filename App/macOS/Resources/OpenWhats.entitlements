@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <!-- App Sandbox — required for Mac App Store -->
+    <key>com.apple.security.app-sandbox</key>
+    <true/>
+
+    <!-- Outbound network (WebSocket + REST API + TURN) -->
+    <key>com.apple.security.network.client</key>
+    <true/>
+
+    <!-- Microphone (voice messages + calls) -->
+    <key>com.apple.security.device.audio-input</key>
+    <true/>
+
+    <!-- Camera (video calls) -->
+    <key>com.apple.security.device.camera</key>
+    <true/>
+
+    <!-- Read pictures (send photos) -->
+    <key>com.apple.security.assets.pictures.read-only</key>
+    <true/>
+
+    <!-- Downloads folder (save received files) -->
+    <key>com.apple.security.files.downloads.read-write</key>
+    <true/>
+
+    <!-- Keychain access group -->
+    <key>keychain-access-groups</key>
+    <array>
+        <string>$(AppIdentifierPrefix)com.openwhats.app</string>
+    </array>
+
+    <!-- Push Notifications via APNs (macOS 10.14+) -->
+    <key>com.apple.developer.usernotifications.communication</key>
+    <true/>
+</dict>
+</plist>

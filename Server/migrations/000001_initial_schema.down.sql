@@ -1,0 +1,9 @@
+DROP TABLE IF EXISTS call_events;
+DROP TABLE IF EXISTS contacts;
+DROP TABLE IF EXISTS message_envelopes;
+DROP TABLE IF EXISTS one_time_pre_keys;
+DROP TABLE IF EXISTS signed_pre_keys;
+DROP TABLE IF EXISTS identity_keys;
+DROP TABLE IF EXISTS devices;
+DROP TABLE IF EXISTS users;
+DROP EXTENSION IF EXISTS "pgcrypto";
