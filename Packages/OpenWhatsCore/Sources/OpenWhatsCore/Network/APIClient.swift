@@ -36,7 +36,11 @@ public actor APIClient {
     private let decoder: JSONDecoder
     private let encoder: JSONEncoder
 
+    #if DEBUG
+    var baseURL: URL = URL(string: "http://localhost:8083")!
+    #else
     var baseURL: URL = URL(string: "https://api.openwhats.app")!
+    #endif
 
     private init() {
         let config = URLSessionConfiguration.default

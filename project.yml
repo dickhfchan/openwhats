@@ -61,6 +61,8 @@ targets:
       path: App/iOS/Resources/OpenWhats.entitlements
       properties:
         aps-environment: development
+        com.apple.developer.applesignin:
+          - Default
         keychain-access-groups:
           - $(AppIdentifierPrefix)com.openwhats.app
         com.apple.developer.associated-domains:

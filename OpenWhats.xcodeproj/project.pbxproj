@@ -18,14 +18,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		29DCA7E42FAF36CDD4AC0747 /* OpenWhats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenWhats.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		29DCA7E42FAF36CDD4AC0747 /* OpenWhats-macOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OpenWhats-macOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		33A411F1087A01F0F22937E4 /* OpenWhatsUI */ = {isa = PBXFileReference; lastKnownFileType = folder; name = OpenWhatsUI; path = Packages/OpenWhatsUI; sourceTree = SOURCE_ROOT; };
 		552728115A5678CA13429A12 /* macOSAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = macOSAppDelegate.swift; sourceTree = "<group>"; };
 		85B07A2D1E921FF7152D86BB /* OpenWhatsCore */ = {isa = PBXFileReference; lastKnownFileType = folder; name = OpenWhatsCore; path = Packages/OpenWhatsCore; sourceTree = SOURCE_ROOT; };
 		88AF454E676A8C0229910925 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		938EF5802CE0902EA08D2CE5 /* OpenWhatsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWhatsApp.swift; sourceTree = "<group>"; };
 		9A5E50779030CF5B62C87E71 /* OpenWhatsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWhatsApp.swift; sourceTree = "<group>"; };
-		DAFBF7E05BAA546C9E791A39 /* OpenWhats.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = OpenWhats.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DAFBF7E05BAA546C9E791A39 /* OpenWhats-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OpenWhats-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,8 +62,8 @@
 		1A17754EB4280F67433B87B5 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DAFBF7E05BAA546C9E791A39 /* OpenWhats.app */,
-				29DCA7E42FAF36CDD4AC0747 /* OpenWhats.app */,
+				DAFBF7E05BAA546C9E791A39 /* OpenWhats-iOS.app */,
+				29DCA7E42FAF36CDD4AC0747 /* OpenWhats-macOS.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -124,7 +124,7 @@
 				B295DFBC8808EE5CBE441B67 /* OpenWhatsUI */,
 			);
 			productName = "OpenWhats-macOS";
-			productReference = 29DCA7E42FAF36CDD4AC0747 /* OpenWhats.app */;
+			productReference = 29DCA7E42FAF36CDD4AC0747 /* OpenWhats-macOS.app */;
 			productType = "com.apple.product-type.application";
 		};
 		EC31F09AF30A3D4E8C6834AD /* OpenWhats-iOS */ = {
@@ -144,7 +144,7 @@
 				5ABBDB850AC87F116C47F5E4 /* OpenWhatsUI */,
 			);
 			productName = "OpenWhats-iOS";
-			productReference = DAFBF7E05BAA546C9E791A39 /* OpenWhats.app */;
+			productReference = DAFBF7E05BAA546C9E791A39 /* OpenWhats-iOS.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -281,7 +281,9 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = K6X4EM4386;
 				INFOPLIST_FILE = App/iOS/Resources/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -301,9 +303,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = App/macOS/Resources/OpenWhats.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = K6X4EM4386;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = App/macOS/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -324,9 +328,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = App/macOS/Resources/OpenWhats.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = K6X4EM4386;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = App/macOS/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -350,7 +356,9 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = K6X4EM4386;
 				INFOPLIST_FILE = App/iOS/Resources/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

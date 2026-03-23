@@ -41,7 +41,11 @@ final class WebSocketClient: NSObject {
     private let encoder = JSONEncoder()
 
     override private init() {
+        #if DEBUG
+        serverURL = URL(string: "ws://localhost:8083/ws")!
+        #else
         serverURL = URL(string: "wss://api.openwhats.app/ws")!
+        #endif
         super.init()
         session = URLSession(configuration: .default, delegate: nil, delegateQueue: .main)
     }

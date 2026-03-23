@@ -314,7 +314,7 @@ final class MessagePipeline {
 // MARK: - Notifications
 
 extension Notification.Name {
-    static let identityKeyChanged = Notification.Name("OpenWhatsIdentityKeyChanged")
+    public static let identityKeyChanged = Notification.Name("OpenWhatsIdentityKeyChanged")
     // .signOut is declared public in OpenWhatsCoreSetup.swift
 }
 
