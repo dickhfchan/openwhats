@@ -1,0 +1,147 @@
+name: OpenWhats
+
+options:
+  bundleIdPrefix: com.openwhats
+  createIntermediateGroups: true
+  deploymentTarget:
+    iOS: "17.0"
+    macOS: "14.0"
+
+packages:
+  OpenWhatsCore:
+    path: Packages/OpenWhatsCore
+  OpenWhatsUI:
+    path: Packages/OpenWhatsUI
+
+targets:
+
+  # ── iOS App ──────────────────────────────────────────────────────────────
+  OpenWhats-iOS:
+    type: application
+    platform: iOS
+    deploymentTarget: "17.0"
+    productName: OpenWhats
+
+    sources:
+      - path: App/iOS
+        excludes:
+          - Resources/**
+
+    resources:
+      - path: App/iOS/Resources/PrivacyInfo.xcprivacy
+
+    info:
+      path: App/iOS/Resources/Info.plist
+      properties:
+        CFBundleDisplayName: OpenWhats
+        NSCameraUsageDescription: "OpenWhats uses your camera to take photos and start video calls."
+        NSMicrophoneUsageDescription: "OpenWhats uses your microphone to record voice messages and make calls."
+        NSPhotoLibraryUsageDescription: "OpenWhats accesses your photo library so you can share photos in conversations."
+        NSContactsUsageDescription: "OpenWhats can find your contacts so you can start conversations with people you know."
+        NSFaceIDUsageDescription: "OpenWhats uses Face ID to unlock the app."
+        UIBackgroundModes:
+          - remote-notification
+          - voip
+        UISupportedInterfaceOrientations:
+          - UIInterfaceOrientationPortrait
+          - UIInterfaceOrientationLandscapeLeft
+          - UIInterfaceOrientationLandscapeRight
+        UISupportedInterfaceOrientations~ipad:
+          - UIInterfaceOrientationPortrait
+          - UIInterfaceOrientationPortraitUpsideDown
+          - UIInterfaceOrientationLandscapeLeft
+          - UIInterfaceOrientationLandscapeRight
+        NSAppTransportSecurity:
+          NSAllowsArbitraryLoads: false
+          NSExceptionDomains:
+            localhost:
+              NSExceptionAllowsInsecureHTTPLoads: true
+
+    entitlements:
+      path: App/iOS/Resources/OpenWhats.entitlements
+      properties:
+        aps-environment: development
+        keychain-access-groups:
+          - $(AppIdentifierPrefix)com.openwhats.app
+        com.apple.developer.associated-domains:
+          - applinks:openwhats.app
+
+    dependencies:
+      - package: OpenWhatsCore
+        product: OpenWhatsCore
+      - package: OpenWhatsUI
+        product: OpenWhatsUI
+
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.openwhats.app
+        MARKETING_VERSION: "1.0.0"
+        CURRENT_PROJECT_VERSION: "1"
+        SWIFT_VERSION: "5.10"
+        CODE_SIGN_STYLE: Automatic
+      configs:
+        Debug:
+          SWIFT_ACTIVE_COMPILATION_CONDITIONS: DEBUG
+        Release:
+          SWIFT_ACTIVE_COMPILATION_CONDITIONS: ""
+
+  # ── macOS App ─────────────────────────────────────────────────────────────
+  OpenWhats-macOS:
+    type: application
+    platform: macOS
+    deploymentTarget: "14.0"
+    productName: OpenWhats
+
+    sources:
+      - path: App/macOS
+        excludes:
+          - Resources/**
+
+    resources:
+      - path: App/macOS/Resources/PrivacyInfo.xcprivacy
+
+    info:
+      path: App/macOS/Resources/Info.plist
+      properties:
+        CFBundleDisplayName: OpenWhats
+        LSMinimumSystemVersion: "14.0"
+        NSCameraUsageDescription: "OpenWhats uses your camera for video calls."
+        NSMicrophoneUsageDescription: "OpenWhats uses your microphone to record voice messages and make calls."
+        NSContactsUsageDescription: "OpenWhats can find your contacts so you can start conversations with people you know."
+        NSAppTransportSecurity:
+          NSAllowsArbitraryLoads: false
+          NSExceptionDomains:
+            localhost:
+              NSExceptionAllowsInsecureHTTPLoads: true
+
+    entitlements:
+      path: App/macOS/Resources/OpenWhats.entitlements
+      properties:
+        com.apple.security.app-sandbox: true
+        com.apple.security.network.client: true
+        com.apple.security.device.audio-input: true
+        com.apple.security.device.camera: true
+        com.apple.security.assets.pictures.read-only: true
+        com.apple.security.files.downloads.read-write: true
+        keychain-access-groups:
+          - $(AppIdentifierPrefix)com.openwhats.app
+
+    dependencies:
+      - package: OpenWhatsCore
+        product: OpenWhatsCore
+      - package: OpenWhatsUI
+        product: OpenWhatsUI
+
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.openwhats.app.mac
+        MARKETING_VERSION: "1.0.0"
+        CURRENT_PROJECT_VERSION: "1"
+        SWIFT_VERSION: "5.10"
+        ENABLE_HARDENED_RUNTIME: YES
+        CODE_SIGN_STYLE: Automatic
+      configs:
+        Debug:
+          SWIFT_ACTIVE_COMPILATION_CONDITIONS: DEBUG
+        Release:
+          SWIFT_ACTIVE_COMPILATION_CONDITIONS: ""

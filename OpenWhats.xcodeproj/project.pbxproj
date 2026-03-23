@@ -1,0 +1,487 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		04E290C1634B1F4505089653 /* OpenWhatsCore in Frameworks */ = {isa = PBXBuildFile; productRef = 11FC0C9728EAC48FB17792C0 /* OpenWhatsCore */; };
+		09F3B9438EE087BD08412677 /* OpenWhatsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5E50779030CF5B62C87E71 /* OpenWhatsApp.swift */; };
+		375DE49CB102185C1BDAF28D /* OpenWhatsUI in Frameworks */ = {isa = PBXBuildFile; productRef = 5ABBDB850AC87F116C47F5E4 /* OpenWhatsUI */; };
+		384ADB7BFD9EC37777AF1A79 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AF454E676A8C0229910925 /* AppDelegate.swift */; };
+		5EF4F33E88E593B9D887E707 /* OpenWhatsUI in Frameworks */ = {isa = PBXBuildFile; productRef = B295DFBC8808EE5CBE441B67 /* OpenWhatsUI */; };
+		84063229A28B2C390338AF1F /* macOSAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552728115A5678CA13429A12 /* macOSAppDelegate.swift */; };
+		A12B079F553E8B137EA5F2F7 /* OpenWhatsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938EF5802CE0902EA08D2CE5 /* OpenWhatsApp.swift */; };
+		E1D0AACD1E24E47ED8D3D365 /* OpenWhatsCore in Frameworks */ = {isa = PBXBuildFile; productRef = 56BB413D15594FEAFA961FDC /* OpenWhatsCore */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		29DCA7E42FAF36CDD4AC0747 /* OpenWhats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenWhats.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		33A411F1087A01F0F22937E4 /* OpenWhatsUI */ = {isa = PBXFileReference; lastKnownFileType = folder; name = OpenWhatsUI; path = Packages/OpenWhatsUI; sourceTree = SOURCE_ROOT; };
+		552728115A5678CA13429A12 /* macOSAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = macOSAppDelegate.swift; sourceTree = "<group>"; };
+		85B07A2D1E921FF7152D86BB /* OpenWhatsCore */ = {isa = PBXFileReference; lastKnownFileType = folder; name = OpenWhatsCore; path = Packages/OpenWhatsCore; sourceTree = SOURCE_ROOT; };
+		88AF454E676A8C0229910925 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		938EF5802CE0902EA08D2CE5 /* OpenWhatsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWhatsApp.swift; sourceTree = "<group>"; };
+		9A5E50779030CF5B62C87E71 /* OpenWhatsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWhatsApp.swift; sourceTree = "<group>"; };
+		DAFBF7E05BAA546C9E791A39 /* OpenWhats.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = OpenWhats.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2D5EDC3D733F8F190F86D86A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04E290C1634B1F4505089653 /* OpenWhatsCore in Frameworks */,
+				375DE49CB102185C1BDAF28D /* OpenWhatsUI in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F33BA8586CE5A050065DF4B0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E1D0AACD1E24E47ED8D3D365 /* OpenWhatsCore in Frameworks */,
+				5EF4F33E88E593B9D887E707 /* OpenWhatsUI in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		03EED4E5779F6F5DE565FC88 = {
+			isa = PBXGroup;
+			children = (
+				EFD525E72A17AC4007FC8ABC /* App */,
+				3F0F68C08A1565654972BDA5 /* Packages */,
+				1A17754EB4280F67433B87B5 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1A17754EB4280F67433B87B5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DAFBF7E05BAA546C9E791A39 /* OpenWhats.app */,
+				29DCA7E42FAF36CDD4AC0747 /* OpenWhats.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3F0F68C08A1565654972BDA5 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				85B07A2D1E921FF7152D86BB /* OpenWhatsCore */,
+				33A411F1087A01F0F22937E4 /* OpenWhatsUI */,
+			);
+			path = Packages;
+			sourceTree = "<group>";
+		};
+		3FD4DFD37F387494976E3261 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				88AF454E676A8C0229910925 /* AppDelegate.swift */,
+				9A5E50779030CF5B62C87E71 /* OpenWhatsApp.swift */,
+			);
+			path = iOS;
+			sourceTree = "<group>";
+		};
+		B86DEB504654AAA091122EAA /* macOS */ = {
+			isa = PBXGroup;
+			children = (
+				552728115A5678CA13429A12 /* macOSAppDelegate.swift */,
+				938EF5802CE0902EA08D2CE5 /* OpenWhatsApp.swift */,
+			);
+			path = macOS;
+			sourceTree = "<group>";
+		};
+		EFD525E72A17AC4007FC8ABC /* App */ = {
+			isa = PBXGroup;
+			children = (
+				3FD4DFD37F387494976E3261 /* iOS */,
+				B86DEB504654AAA091122EAA /* macOS */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5B1945ACD057FB1A9A00D2BB /* OpenWhats-macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8738951461E8D096C3DC8ED2 /* Build configuration list for PBXNativeTarget "OpenWhats-macOS" */;
+			buildPhases = (
+				C97BEE0F6CAB9F79FEAACB4C /* Sources */,
+				F33BA8586CE5A050065DF4B0 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "OpenWhats-macOS";
+			packageProductDependencies = (
+				56BB413D15594FEAFA961FDC /* OpenWhatsCore */,
+				B295DFBC8808EE5CBE441B67 /* OpenWhatsUI */,
+			);
+			productName = "OpenWhats-macOS";
+			productReference = 29DCA7E42FAF36CDD4AC0747 /* OpenWhats.app */;
+			productType = "com.apple.product-type.application";
+		};
+		EC31F09AF30A3D4E8C6834AD /* OpenWhats-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5C1CE605B8BF89EAFDE00A02 /* Build configuration list for PBXNativeTarget "OpenWhats-iOS" */;
+			buildPhases = (
+				8A271F6492640B818C5869B5 /* Sources */,
+				2D5EDC3D733F8F190F86D86A /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "OpenWhats-iOS";
+			packageProductDependencies = (
+				11FC0C9728EAC48FB17792C0 /* OpenWhatsCore */,
+				5ABBDB850AC87F116C47F5E4 /* OpenWhatsUI */,
+			);
+			productName = "OpenWhats-iOS";
+			productReference = DAFBF7E05BAA546C9E791A39 /* OpenWhats.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F86779D289FAA9DD2866FAFB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					5B1945ACD057FB1A9A00D2BB = {
+						ProvisioningStyle = Automatic;
+					};
+					EC31F09AF30A3D4E8C6834AD = {
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 018B45D526FA699AAE7C1981 /* Build configuration list for PBXProject "OpenWhats" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 03EED4E5779F6F5DE565FC88;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				410985EB6409F10C7B9FE7EE /* XCLocalSwiftPackageReference "Packages/OpenWhatsCore" */,
+				2EB141193270FEC49E1607A3 /* XCLocalSwiftPackageReference "Packages/OpenWhatsUI" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 1A17754EB4280F67433B87B5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EC31F09AF30A3D4E8C6834AD /* OpenWhats-iOS */,
+				5B1945ACD057FB1A9A00D2BB /* OpenWhats-macOS */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8A271F6492640B818C5869B5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				384ADB7BFD9EC37777AF1A79 /* AppDelegate.swift in Sources */,
+				09F3B9438EE087BD08412677 /* OpenWhatsApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C97BEE0F6CAB9F79FEAACB4C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A12B079F553E8B137EA5F2F7 /* OpenWhatsApp.swift in Sources */,
+				84063229A28B2C390338AF1F /* macOSAppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		23394143902D21C968201423 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		3CDF9564200CC8826B168A2F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = App/iOS/Resources/OpenWhats.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				INFOPLIST_FILE = App/iOS/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.openwhats.app;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 5.10;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6DB58CC8176601CA5C4B6977 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = App/macOS/Resources/OpenWhats.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = App/macOS/Resources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.openwhats.app.mac;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 5.10;
+			};
+			name = Debug;
+		};
+		8148584BD6C42DEFBF04A021 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = App/macOS/Resources/OpenWhats.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = App/macOS/Resources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.openwhats.app.mac;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "";
+				SWIFT_VERSION = 5.10;
+			};
+			name = Release;
+		};
+		9A19C277F3BABB0711959BD0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = App/iOS/Resources/OpenWhats.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				INFOPLIST_FILE = App/iOS/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.openwhats.app;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "";
+				SWIFT_VERSION = 5.10;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		E0891745D3A192B15AF0204D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		018B45D526FA699AAE7C1981 /* Build configuration list for PBXProject "OpenWhats" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				23394143902D21C968201423 /* Debug */,
+				E0891745D3A192B15AF0204D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		5C1CE605B8BF89EAFDE00A02 /* Build configuration list for PBXNativeTarget "OpenWhats-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3CDF9564200CC8826B168A2F /* Debug */,
+				9A19C277F3BABB0711959BD0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		8738951461E8D096C3DC8ED2 /* Build configuration list for PBXNativeTarget "OpenWhats-macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6DB58CC8176601CA5C4B6977 /* Debug */,
+				8148584BD6C42DEFBF04A021 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		2EB141193270FEC49E1607A3 /* XCLocalSwiftPackageReference "Packages/OpenWhatsUI" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/OpenWhatsUI;
+		};
+		410985EB6409F10C7B9FE7EE /* XCLocalSwiftPackageReference "Packages/OpenWhatsCore" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/OpenWhatsCore;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		11FC0C9728EAC48FB17792C0 /* OpenWhatsCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = OpenWhatsCore;
+		};
+		56BB413D15594FEAFA961FDC /* OpenWhatsCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = OpenWhatsCore;
+		};
+		5ABBDB850AC87F116C47F5E4 /* OpenWhatsUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = OpenWhatsUI;
+		};
+		B295DFBC8808EE5CBE441B67 /* OpenWhatsUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = OpenWhatsUI;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = F86779D289FAA9DD2866FAFB /* Project object */;
+}

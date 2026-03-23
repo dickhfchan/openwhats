@@ -2,6 +2,10 @@
 Server/server
 Server/testtoken
 
+# Xcode user-specific data (not the project itself)
+*.xcodeproj/xcuserdata/
+*.xcworkspace/xcuserdata/
+
 # Secrets & local config
 .env
 .env.*
