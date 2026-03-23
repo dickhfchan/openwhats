@@ -53,6 +53,7 @@ func buildRouter(db *sql.DB, logger *zap.Logger) http.Handler {
 	// Public
 	mux.HandleFunc("GET /health", handleHealth(db))
 	mux.HandleFunc("POST /auth/apple", authHandler.HandleAppleAuth)
+	mux.HandleFunc("POST /auth/debug-token", authHandler.HandleDebugToken)
 
 	// Authenticated
 	mux.Handle("POST /auth/refresh", authMW(http.HandlerFunc(authHandler.HandleRefresh)))

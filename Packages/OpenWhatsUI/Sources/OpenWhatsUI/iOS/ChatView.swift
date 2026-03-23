@@ -87,10 +87,10 @@ public struct ChatView: View {
         ScrollViewReader { proxy in
             ScrollView {
                 LazyVStack(spacing: 0) {
-                    ForEach(messagesWithDateSeparators, id: \.id) { item in
+                    ForEach(Array(messagesWithDateSeparators.enumerated()), id: \.element.id) { index, item in
                         switch item {
                         case .message(let msg):
-                            MessageBubble(message: msg)
+                            MessageBubble(message: msg, isLastInGroup: isLastInGroup(at: index))
                                 .id(msg.id)
                                 .contextMenu { messagContextMenu(for: msg) }
 
@@ -162,6 +162,17 @@ public struct ChatView: View {
             result.append(.message(msg))
         }
         return result
+    }
+
+    private func isLastInGroup(at index: Int) -> Bool {
+        let items = messagesWithDateSeparators
+        guard case .message(let current) = items[index] else { return true }
+        if index + 1 < items.count {
+            if case .message(let next) = items[index + 1] {
+                return next.isMine != current.isMine
+            }
+        }
+        return true
     }
 
     // MARK: - Actions

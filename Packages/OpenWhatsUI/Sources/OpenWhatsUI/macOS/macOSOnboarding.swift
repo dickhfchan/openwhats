@@ -83,8 +83,12 @@ public struct macOSOnboarding: View {
             Task {
                 do {
                     let resp = try await APIClient.shared.appleAuth(identityToken: token)
-                    UserDefaults.standard.set(resp.token, forKey: "jwt_token")
-                    UserDefaults.standard.set(resp.userId, forKey: "user_id")
+                    AccountManager.shared.jwtToken = resp.token
+                    AccountManager.shared.userID = resp.userId
+
+                    let deviceResp = try await APIClient.shared.registerDevice(type: "desktop", apnsToken: nil)
+                    AccountManager.shared.deviceID = deviceResp.deviceId
+
                     await MainActor.run {
                         if resp.isComplete { onComplete() } else { step = .profile }
                     }

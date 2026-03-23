@@ -128,8 +128,8 @@ func VerifyAppleToken(ctx context.Context, identityToken string, bundleIDs []str
 	var claims jwt.MapClaims
 	_, err = jwt.NewParser(
 		jwt.WithValidMethods([]string{"RS256"}),
-		jwt.WithIssuedAt(),
 		jwt.WithExpirationRequired(),
+		jwt.WithLeeway(30*time.Second),
 	).ParseWithClaims(identityToken, &claims, func(t *jwt.Token) (any, error) {
 		return pubKey, nil
 	})

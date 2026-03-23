@@ -19,6 +19,7 @@ struct macOSChatView: View {
                 keyChangeBanner
             }
             messageList
+                .background(Color(light: Color(hex: "#EAE4D9"), dark: Color(hex: "#0D1418")))
             Divider()
             macOSMessageInputBar(
                 text: $inputText,
@@ -29,15 +30,6 @@ struct macOSChatView: View {
         }
         .navigationTitle(conversation.peerDisplayName)
         .navigationSubtitle("last seen recently")
-        .toolbar {
-            ToolbarItem(placement: .primaryAction) {
-                AvatarView(
-                    url: conversation.peerAvatarURL.flatMap { URL(string: $0) },
-                    name: conversation.peerDisplayName,
-                    size: 28
-                )
-            }
-        }
         .onAppear { messages = Message.previews(for: conversation.id) }
         .onReceive(NotificationCenter.default.publisher(for: .identityKeyChanged)) { note in
             if (note.object as? String) == conversation.peerUserID {
@@ -89,10 +81,10 @@ struct macOSChatView: View {
         ScrollViewReader { proxy in
             ScrollView {
                 LazyVStack(spacing: 0) {
-                    ForEach(messagesWithDateSeparators, id: \.id) { item in
+                    ForEach(Array(messagesWithDateSeparators.enumerated()), id: \.element.id) { index, item in
                         switch item {
                         case .message(let msg):
-                            MessageBubble(message: msg)
+                            MessageBubble(message: msg, isLastInGroup: isLastInGroup(at: index))
                                 .id(msg.id)
                                 .contextMenu { messageContextMenu(for: msg) }
                         case .dateSeparator(let date):
@@ -159,6 +151,18 @@ struct macOSChatView: View {
             result.append(.message(msg))
         }
         return result
+    }
+
+    private func isLastInGroup(at index: Int) -> Bool {
+        let items = messagesWithDateSeparators
+        guard case .message(let current) = items[index] else { return true }
+        // Check if next item is a different sender or a date separator
+        if index + 1 < items.count {
+            if case .message(let next) = items[index + 1] {
+                return next.isMine != current.isMine
+            }
+        }
+        return true
     }
 
     // MARK: - Actions

@@ -32,7 +32,9 @@ public struct Message: Identifiable, Codable, Equatable, Hashable {
     public var timestamp: Date
     public var status: MessageStatus
 
-    public var isMine: Bool { senderID == AccountManager.shared.userID }
+    public var isMine: Bool {
+        senderID == AccountManager.shared.userID || senderID == "me"
+    }
 
     public init(id: String, conversationID: String, senderID: String, senderDeviceID: String,
                 type: MessageType, body: String?, localPath: String?, timestamp: Date, status: MessageStatus) {

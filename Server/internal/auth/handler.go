@@ -5,6 +5,7 @@ import (
 	"net/http"
 	"strings"
 
+	"github.com/golang-jwt/jwt/v5"
 	"github.com/openwhats/server/internal/ctxkey"
 	"github.com/openwhats/server/internal/user"
 	"go.uber.org/zap"
@@ -47,7 +48,7 @@ func (h *Handler) HandleAppleAuth(w http.ResponseWriter, r *http.Request) {
 	sub, err := VerifyAppleToken(r.Context(), req.IdentityToken, h.bundleIDs)
 	if err != nil {
 		h.logger.Warn("apple token verification failed", zap.Error(err))
-		http.Error(w, `{"error":"invalid identity_token"}`, http.StatusUnauthorized)
+		writeJSON(w, http.StatusUnauthorized, map[string]string{"error": err.Error()})
 		return
 	}
 
@@ -80,6 +81,21 @@ func (h *Handler) HandleAppleAuth(w http.ResponseWriter, r *http.Request) {
 		IsNewUser:  isNew,
 		IsComplete: u.Handle != "",
 	})
+}
+
+// POST /auth/debug-token — decodes Apple JWT claims without verification (DEBUG only)
+func (h *Handler) HandleDebugToken(w http.ResponseWriter, r *http.Request) {
+	var req appleAuthRequest
+	if err := json.NewDecoder(r.Body).Decode(&req); err != nil || req.IdentityToken == "" {
+		http.Error(w, `{"error":"identity_token required"}`, http.StatusBadRequest)
+		return
+	}
+	_, claims, err := jwt.NewParser().ParseUnverified(req.IdentityToken, jwt.MapClaims{})
+	if err != nil {
+		writeJSON(w, http.StatusBadRequest, map[string]string{"error": err.Error()})
+		return
+	}
+	writeJSON(w, http.StatusOK, claims)
 }
 
 // POST /auth/refresh

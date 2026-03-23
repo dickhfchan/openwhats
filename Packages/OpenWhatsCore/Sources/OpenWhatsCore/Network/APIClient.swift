@@ -88,7 +88,9 @@ public actor APIClient {
         case 200...299:
             do { return try decoder.decode(T.self, from: data) }
             catch { throw APIError.decodingError(error) }
-        case 401: throw APIError.unauthorized
+        case 401:
+            let msg = (try? decoder.decode([String: String].self, from: data))?["error"] ?? "unauthorized"
+            throw APIError.serverError("[\(endpoint)] \(msg)")
         case 404: throw APIError.notFound
         case 429:
             let retry = Int(http.value(forHTTPHeaderField: "Retry-After") ?? "1") ?? 1

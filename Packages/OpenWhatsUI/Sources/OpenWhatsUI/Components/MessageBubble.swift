@@ -4,16 +4,29 @@ import OpenWhatsCore
 /// A single chat message bubble — sent (teal, right) or received (white/dark, left).
 public struct MessageBubble: View {
     let message: Message
+    /// Whether this is the last message in a consecutive run from the same sender.
+    /// When false, the bubble tail is hidden and corner radius is uniform.
+    var isLastInGroup: Bool
 
-    public init(message: Message) {
+    public init(message: Message, isLastInGroup: Bool = true) {
         self.message = message
+        self.isLastInGroup = isLastInGroup
     }
 
     private var isMine: Bool { message.isMine }
 
     public var body: some View {
-        HStack(alignment: .bottom, spacing: 0) {
-            if isMine { Spacer(minLength: 60) }
+        HStack(alignment: .bottom, spacing: 6) {
+            // Avatar placeholder for received messages
+            if !isMine {
+                if isLastInGroup {
+                    AvatarView(url: nil, name: "?", size: 28)
+                } else {
+                    Color.clear.frame(width: 28, height: 28)
+                }
+            }
+
+            if isMine { Spacer(minLength: 40) }
 
             VStack(alignment: isMine ? .trailing : .leading, spacing: 0) {
                 switch message.type {
@@ -28,24 +41,27 @@ public struct MessageBubble: View {
                 }
             }
 
-            if !isMine { Spacer(minLength: 60) }
+            if !isMine { Spacer(minLength: 40) }
+
+            // Balance spacing for sent messages (no avatar)
+            if isMine { Color.clear.frame(width: 28, height: 28) }
         }
         .padding(.horizontal, 8)
-        .padding(.vertical, 2)
+        .padding(.vertical, isLastInGroup ? 2 : 1)
     }
 
     // MARK: - Text bubble
 
     private var textBubble: some View {
-        ZStack(alignment: isMine ? .bottomTrailing : .bottomLeading) {
-            Text((message.body ?? "") + messagePadding)
+        VStack(alignment: isMine ? .trailing : .leading, spacing: 1) {
+            Text(message.body ?? "")
                 .font(.body)
+                .foregroundStyle(Color.primary)
+                .fixedSize(horizontal: false, vertical: true)
                 .padding(.horizontal, 12)
                 .padding(.top, 8)
-                .padding(.bottom, 8)
-                .foregroundStyle(isMine ? Color.primary : Color.primary)
+                .padding(.bottom, 1)
 
-            // Timestamp + ticks overlay at bottom-right
             HStack(spacing: 3) {
                 Text(message.timestamp.shortTimeString)
                     .font(.system(size: 11))
@@ -57,15 +73,9 @@ public struct MessageBubble: View {
             .padding(.horizontal, 10)
             .padding(.bottom, 5)
         }
+        .fixedSize(horizontal: false, vertical: true)
         .background(bubbleColor)
-        .clipShape(BubbleShape(isMine: isMine))
-        .overlay(BubbleShape(isMine: isMine).stroke(Color.clear, lineWidth: 0))
-    }
-
-    // Pad the text so the timestamp doesn't overlap
-    private var messagePadding: String {
-        let pad = isMine ? "        " : "     "
-        return pad
+        .clipShape(BubbleShape(isMine: isMine, showTail: isLastInGroup))
     }
 
     // MARK: - Image bubble
@@ -133,7 +143,7 @@ public struct MessageBubble: View {
     private var bubbleColor: Color {
         isMine
             ? Color(light: Color(hex: "#DCF8C6"), dark: Color(hex: "#005C4B"))
-            : Color(light: .white, dark: Color(hex: "#262D31"))
+            : Color(light: Color(hex: "#F0F0F0"), dark: Color(hex: "#262D31"))
     }
 }
 
@@ -141,22 +151,27 @@ public struct MessageBubble: View {
 
 struct BubbleShape: Shape {
     let isMine: Bool
-    let radius: CGFloat = 18
+    var showTail: Bool = true
+    let radius: CGFloat = 16
 
     func path(in rect: CGRect) -> Path {
+        // When no tail, just use uniform rounded rect
+        guard showTail else {
+            return Path(roundedRect: rect, cornerRadius: radius)
+        }
+
         var path = Path()
-        let tailSize: CGFloat = 8
+        // Bottom corner radius is smaller when showing tail (flatter bottom edge)
+        let br: CGFloat = 4
 
         if isMine {
-            // Rounded rect with flat bottom-right and small tail
             path.move(to: CGPoint(x: rect.minX + radius, y: rect.minY))
             path.addLine(to: CGPoint(x: rect.maxX - radius, y: rect.minY))
             path.addArc(center: CGPoint(x: rect.maxX - radius, y: rect.minY + radius),
                         radius: radius, startAngle: .degrees(-90), endAngle: .degrees(0), clockwise: false)
-            path.addLine(to: CGPoint(x: rect.maxX, y: rect.maxY - tailSize))
-            // Tail pointing right
-            path.addLine(to: CGPoint(x: rect.maxX + tailSize, y: rect.maxY))
-            path.addLine(to: CGPoint(x: rect.maxX, y: rect.maxY))
+            path.addLine(to: CGPoint(x: rect.maxX, y: rect.maxY - br))
+            path.addArc(center: CGPoint(x: rect.maxX - br, y: rect.maxY - br),
+                        radius: br, startAngle: .degrees(0), endAngle: .degrees(90), clockwise: false)
             path.addLine(to: CGPoint(x: rect.minX + radius, y: rect.maxY))
             path.addArc(center: CGPoint(x: rect.minX + radius, y: rect.maxY - radius),
                         radius: radius, startAngle: .degrees(90), endAngle: .degrees(180), clockwise: false)
@@ -164,7 +179,6 @@ struct BubbleShape: Shape {
             path.addArc(center: CGPoint(x: rect.minX + radius, y: rect.minY + radius),
                         radius: radius, startAngle: .degrees(180), endAngle: .degrees(270), clockwise: false)
         } else {
-            // Rounded rect with flat bottom-left and small tail
             path.move(to: CGPoint(x: rect.minX + radius, y: rect.minY))
             path.addLine(to: CGPoint(x: rect.maxX - radius, y: rect.minY))
             path.addArc(center: CGPoint(x: rect.maxX - radius, y: rect.minY + radius),
@@ -172,10 +186,9 @@ struct BubbleShape: Shape {
             path.addLine(to: CGPoint(x: rect.maxX, y: rect.maxY - radius))
             path.addArc(center: CGPoint(x: rect.maxX - radius, y: rect.maxY - radius),
                         radius: radius, startAngle: .degrees(0), endAngle: .degrees(90), clockwise: false)
-            path.addLine(to: CGPoint(x: rect.minX, y: rect.maxY))
-            // Tail pointing left
-            path.addLine(to: CGPoint(x: rect.minX - tailSize, y: rect.maxY))
-            path.addLine(to: CGPoint(x: rect.minX, y: rect.maxY - tailSize))
+            path.addLine(to: CGPoint(x: rect.minX + br, y: rect.maxY))
+            path.addArc(center: CGPoint(x: rect.minX + br, y: rect.maxY - br),
+                        radius: br, startAngle: .degrees(90), endAngle: .degrees(180), clockwise: false)
             path.addLine(to: CGPoint(x: rect.minX, y: rect.minY + radius))
             path.addArc(center: CGPoint(x: rect.minX + radius, y: rect.minY + radius),
                         radius: radius, startAngle: .degrees(180), endAngle: .degrees(270), clockwise: false)

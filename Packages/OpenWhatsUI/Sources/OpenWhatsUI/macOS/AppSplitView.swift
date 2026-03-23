@@ -30,6 +30,7 @@ public struct AppSplitView: View {
                     conversation: conversation,
                     showDetail: $showDetail
                 )
+                .id(conversation.id)
             } else {
                 ContentUnavailableView(
                     "No Chat Selected",
